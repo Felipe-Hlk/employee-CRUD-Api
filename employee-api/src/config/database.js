@@ -14,11 +14,11 @@ dotenv.config();
 
 //conexão com a Base de Dados:
 
-const pool = new pool({
+const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
-pool.on( 'error', (err, client) => {
+pool.on( 'error', (err) => {
   console.log('Unexpected error on idle client', err)
   process.exit(-1);
 });
