@@ -19,7 +19,13 @@ router.post('/employees', employeeController.createEmployee);
 // => Rota responsável por listar todos os Colaboradores: (GET): localhost:3000/api/employees
 router.get('/employees', employeeController.listAllEmployees);
 
-// = > Rota responsável por listar um Colaborador por ID: (GET): localhost:3000/api/employees/Id
+// = > Rota responsável por listar um Colaborador(a) por Id: (GET): localhost:3000/api/employees/Id
 router.get('/employees/:id', employeeController.findEmployeeById);
+
+// = > Rota responsável por atualizar um determinado Colaborador(a) por Id: (PUT): localhost:3000/api/employees/Id
+router.put('/employees/:id', employeeController.UpdateEmployeeById);
+
+
+
 
 module.exports = router;
