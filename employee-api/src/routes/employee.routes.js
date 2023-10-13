@@ -25,7 +25,8 @@ router.get('/employees/:id', employeeController.findEmployeeById);
 // = > Rota responsável por atualizar um determinado Colaborador(a) por Id: (PUT): localhost:3000/api/employees/Id
 router.put('/employees/:id', employeeController.UpdateEmployeeById);
 
-
+// = > Rota responsável por deletar/excluir um determinado Colaborador(a) por Id: (PUT): localhost:3000/api/employees/Id
+router.delete('/employees/:id', employeeController.deleteEmployeeById);
 
 
 module.exports = router;
