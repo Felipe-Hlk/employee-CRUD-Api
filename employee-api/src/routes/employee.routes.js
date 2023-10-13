@@ -13,9 +13,13 @@ const employeeController = require('../controllers/employee.controller');
 
 // => Definindo as rotas do CRUD - 'Employee'
 
-// => Rota responsável por criar um novo 'Colaborador(a)': (Post): localhost:3000/api/employees
+// => Rota responsável por criar um novo Colaborador(a): (Post): localhost:3000/api/employees
 
 router.post('/employees', employeeController.createEmployee);
+
+// => Rota responsável por listar todos os Colaboradores: (GET): localhost:3000/api/employees
+
+router.get('/employees', employeeController.listAllEmployees);
 
 
 module.exports = router;
