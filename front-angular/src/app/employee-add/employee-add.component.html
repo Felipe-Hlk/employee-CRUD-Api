@@ -16,7 +16,7 @@
 
       <div *ngIf="employeeForm.controls['employeeName'].invalid && (employeeForm.controls['employeeName'].dirty || employeeForm.controls['employeeName'].touched)" class="alert alert-danger">
         <div *ngIf="employeeForm.controls['employeeName'].hasError('required')">
-          Employee Name is required
+          Name is required
         </div>
       </div>
     <!------------- FIM BLOCO: Employee Name----------------->
@@ -34,11 +34,13 @@
         />
       </div>
 
-      <div *ngIf="employeeForm.controls['job_role'].invalid && (employeeForm.controls[' job_role'].dirty || employeeForm.controls['job_role'].touched)" class="alert alert-danger">
+      <div *ngIf="employeeForm.controls['job_role'].invalid && (employeeForm.controls['job_role'].dirty || employeeForm.controls['job_role'].touched)" class="alert alert-danger">
         <div *ngIf="employeeForm.controls['job_role'].hasError('required')">
           Job Role is required
         </div>
       </div>
+
+
 
       <!------------- FIM BLOCO: Job Role----------------->
 
@@ -55,7 +57,7 @@
 
       <div *ngIf="employeeForm.controls['salary'].invalid && (employeeForm.controls['salary'].dirty || employeeForm.controls['salary'].touched)" class="alert alert-danger">
         <div *ngIf="employeeForm.controls['salary'].hasError('required')">
-          Name is required
+          Salary is required
         </div>
       </div>
 
@@ -67,16 +69,16 @@
       <div class="form-group">
         <label for="birth" class="col-md-4"> Birth </label>
         <input
-          type="text"
+          type="date"
           class="form-control"
-          placeholder="YYYY/MM/DD"
+
           formControlName="birth"
         />
       </div>
 
       <div *ngIf="employeeForm.controls['birth'].invalid && (employeeForm.controls['birth'].dirty || employeeForm.controls['birth'].touched)" class="alert alert-danger">
         <div *ngIf="employeeForm.controls['birth'].hasError('required')">
-          Name is required
+          Date is required
         </div>
       </div>
 
@@ -97,7 +99,7 @@
 
       <div *ngIf="employeeForm.controls['employee_registration'].invalid && (employeeForm.controls['employee_registration'].dirty || employeeForm.controls['employee_registration'].touched)" class="alert alert-danger">
         <div *ngIf="employeeForm.controls['employee_registration'].hasError('required')">
-          Name is required
+          Registration is required
         </div>
       </div>
 
