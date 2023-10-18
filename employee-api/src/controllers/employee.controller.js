@@ -11,7 +11,7 @@
 
 const db = require('../config/database');
 
-//=> Método responsável por criar um novo 'Employee':
+//=> Método responsável por criar um novo 'Employee': POST
 exports.createEmployee = async (req, res) => {
   const { name, job_role, salary, birth, employee_registration } = req.body;
   const { rows } = await db.query(
@@ -27,13 +27,13 @@ exports.createEmployee = async (req, res) => {
   });
 };
 
-//=> Método responsável por listar todos os 'Employees':
+//=> Método responsável por listar todos os 'Employees': GET
 exports.listAllEmployees = async (req, res) => {
   const response = await db.query('SELECT * FROM employee ORDER BY name ASC');
   res.status(200).send(response.rows);
 };
 
-//=> Método responsável por listar um determinado 'Employee' por Id:
+//=> Método responsável por listar um determinado 'Employee' por Id: GET Id
 exports.findEmployeeById = async (req, res) => {
   const employeeId = req.params.id;
   const response = await db.query('SELECT * FROM employee WHERE employee_Id = $1', [employeeId]);
@@ -41,7 +41,7 @@ exports.findEmployeeById = async (req, res) => {
 }
 
 
-//=> Método responsável por atualizar um determinado 'Employee' por Id:
+//=> Método responsável por atualizar um determinado 'Employee' por Id: PUT Id
 exports.UpdateEmployeeById = async (req, res) => {
   const employeeId = req.params.id;
   const { name, job_role, salary, birth, employee_registration } = req.body;
@@ -55,7 +55,7 @@ exports.UpdateEmployeeById = async (req, res) => {
 
 }
 
-//=> Método responsável por deletar um determinado 'Employee' por Id:
+//=> Método responsável por deletar um determinado 'Employee' por Id: DELETE Id
 exports.deleteEmployeeById  = async (req, res) => {
   const employeeId = req.params.id;
   await db.query('DELETE FROM employee WHERE employee_Id = $1', [employeeId]);
