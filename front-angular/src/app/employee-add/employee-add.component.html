@@ -1,8 +1,7 @@
 <div class="card">
   <div class="cardbody">
     <form [formGroup]="employeeForm" novalidate>
-
-    <!------------- INÍCIO BLOCO: Employee Name----------------->
+      <!------------- INÍCIO BLOCO: Employee Name----------------->
       <div class="form-group">
         <label for="employee-name" class="col-md-4"> Employee Name </label>
         <input
@@ -10,18 +9,24 @@
           class="form-control"
           placeholder="Type your name"
           formControlName="employeeName"
-
         />
       </div>
 
-      <div *ngIf="employeeForm.controls['employeeName'].invalid && (employeeForm.controls['employeeName'].dirty || employeeForm.controls['employeeName'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="
+          employeeForm.controls['employeeName'].invalid &&
+          (employeeForm.controls['employeeName'].dirty ||
+            employeeForm.controls['employeeName'].touched)
+        "
+        class="alert alert-danger"
+      >
         <div *ngIf="employeeForm.controls['employeeName'].hasError('required')">
           Name is required
         </div>
       </div>
-    <!------------- FIM BLOCO: Employee Name----------------->
+      <!------------- FIM BLOCO: Employee Name----------------->
 
-    <!------------- INÍCIO BLOCO: Job Role----------------->
+      <!------------- INÍCIO BLOCO: Job Role----------------->
 
       <div class="form-group">
         <label for="job_role" class="col-md-4"> Job Role </label>
@@ -30,17 +35,21 @@
           class="form-control"
           placeholder="Type your job role"
           formControlName="job_role"
-
         />
       </div>
 
-      <div *ngIf="employeeForm.controls['job_role'].invalid && (employeeForm.controls['job_role'].dirty || employeeForm.controls['job_role'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="
+          employeeForm.controls['job_role'].invalid &&
+          (employeeForm.controls['job_role'].dirty ||
+            employeeForm.controls['job_role'].touched)
+        "
+        class="alert alert-danger"
+      >
         <div *ngIf="employeeForm.controls['job_role'].hasError('required')">
           Job Role is required
         </div>
       </div>
-
-
 
       <!------------- FIM BLOCO: Job Role----------------->
 
@@ -55,12 +64,18 @@
         />
       </div>
 
-      <div *ngIf="employeeForm.controls['salary'].invalid && (employeeForm.controls['salary'].dirty || employeeForm.controls['salary'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="
+          employeeForm.controls['salary'].invalid &&
+          (employeeForm.controls['salary'].dirty ||
+            employeeForm.controls['salary'].touched)
+        "
+        class="alert alert-danger"
+      >
         <div *ngIf="employeeForm.controls['salary'].hasError('required')">
           Salary is required
         </div>
       </div>
-
 
       <!------------- FIM BLOCO: Salary----------------->
 
@@ -68,15 +83,17 @@
 
       <div class="form-group">
         <label for="birth" class="col-md-4"> Birth </label>
-        <input
-          type="date"
-          class="form-control"
-
-          formControlName="birth"
-        />
+        <input type="date" class="form-control" formControlName="birth" />
       </div>
 
-      <div *ngIf="employeeForm.controls['birth'].invalid && (employeeForm.controls['birth'].dirty || employeeForm.controls['birth'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="
+          employeeForm.controls['birth'].invalid &&
+          (employeeForm.controls['birth'].dirty ||
+            employeeForm.controls['birth'].touched)
+        "
+        class="alert alert-danger"
+      >
         <div *ngIf="employeeForm.controls['birth'].hasError('required')">
           Date is required
         </div>
@@ -84,11 +101,12 @@
 
       <!------------- FIM BLOCO: Birth----------------->
 
-
       <!------------- INÍCIO BLOCO: Employee Registration----------------->
 
       <div class="form-group">
-        <label for="employee_registration" class="col-md-4"> Employee Registration </label>
+        <label for="employee_registration" class="col-md-4">
+          Employee Registration
+        </label>
         <input
           type="text"
           class="form-control"
@@ -97,15 +115,50 @@
         />
       </div>
 
-      <div *ngIf="employeeForm.controls['employee_registration'].invalid && (employeeForm.controls['employee_registration'].dirty || employeeForm.controls['employee_registration'].touched)" class="alert alert-danger">
-        <div *ngIf="employeeForm.controls['employee_registration'].hasError('required')">
+      <div
+        *ngIf="
+          employeeForm.controls['employee_registration'].invalid &&
+          (employeeForm.controls['employee_registration'].dirty ||
+            employeeForm.controls['employee_registration'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            employeeForm.controls['employee_registration'].hasError('required')
+          "
+        >
           Registration is required
         </div>
       </div>
 
       <!------------- FIM BLOCO: Employee Registration----------------->
 
+      <div class="form-buttons-container">
+        <div class="form-buttons">
+          <button
+            (click)="
+              employeesService.createNewEmployee(
+                employeeForm.value.employeeName,
+                employeeForm.value.job_role,
+                employeeForm.value.salary,
+                employeeForm.value.birth,
+                employeeForm.value.employee_registration
+              )
+            "
+            class="btn btn-primary"
+            [disabled]="employeeForm.pristine || employeeForm.invalid"
+          >
+            Cadastrar
+          </button>
 
+          <button class="btn btn-danger"
+          [disabled]="employeeForm.pristine || employeeForm.invalid"
+          >
+            Deletar
+          </button>
+        </div>
+      </div>
     </form>
   </div>
 </div>
