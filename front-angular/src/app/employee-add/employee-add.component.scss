@@ -15,3 +15,19 @@
   margin-top: -25px;
   border: 0cap;
 }
+
+.form-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+
+  .form-buttons {
+    .btn {
+      margin-right: 10px;
+    }
+  }
+}
+
+
+
+
