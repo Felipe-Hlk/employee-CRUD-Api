@@ -17,9 +17,9 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) {}
 
-  createNewEmployee(employeeName: string, job_role: string, salary: number, birth: Date, employee_registration: number) {
+  createNewEmployee(name: string, job_role: string, salary: number, birth: Date, employee_registration: number) {
     const employee = {
-      employeeName,
+      name,
       job_role,
       salary,
       birth,
