@@ -6,11 +6,32 @@
  */
 
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
 
-  constructor() { }
+  uri = 'http://localhost:3000/api'; // Vindo do BackEnd
+
+  constructor(private http: HttpClient) {}
+
+  createNewEmployee(employeeName: string, job_role: string, salary: number, birth: Date, employee_registration: number) {
+    const employee = {
+      employeeName,
+      job_role,
+      salary,
+      birth,
+      employee_registration
+    };
+
+    console.log(employee);
+
+    // (POST - URL no Back-End): http://localhost:3000/api/employees
+    this.http.post(`${this.uri}/employees`, employee)
+      .subscribe((res: any) => console.log('Feito'));
+  }
 }
+
+
