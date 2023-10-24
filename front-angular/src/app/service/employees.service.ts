@@ -7,13 +7,16 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import Employee from '../classes/Employee';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
-  getEmployees() {
-    throw new Error('Method not implemented.');
+  
+  getEmployees(): Observable<Employee[]> { // Declare o retorno como um Observable
+    return this.http.get<Employee[]>(`${this.uri}/employees`);
   }
 
   uri = 'http://localhost:3000/api'; // Vindo do BackEnd

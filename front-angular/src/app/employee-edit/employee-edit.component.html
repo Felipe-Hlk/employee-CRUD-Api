@@ -12,13 +12,14 @@
 
   <tbody>
     <tr *ngFor="let employee of employees">
-      <td align="center"> {{employee.employeeName}} </td>
+      <td align="center"> {{employee.name}} </td>
       <td align="center"> {{employee.job_role}} </td>
       <td align="center"> {{employee.salary}} </td>
       <td align="center"> {{employee.birth}} </td>
       <td align="center"> {{employee.employee_registration}} </td>
-      <td align="center"> <a [routerLink]="['/employee', employee_id]" class="btn btn-sucess"> Include </a></td>
-      <td align="center"> <button (click)="deleteEmployee(employee_id)" class="btn btn-sucess"> Delete </button></td>
+      <td align="center"> <a [routerLink]="['/employee', employee_id]" class="btn btn-success"> Include </a></td>
+      <td align="center"> <button (click)="deleteEmployee(employee_id)" class="btn btn-success"> Delete </button></td>
+
     </tr>
   </tbody>
 

@@ -6,12 +6,12 @@
  */
 
 export default class Employee {
-  employeeName!: string;
+  employee_id?: number;
+  name!: string;
   job_role!: string;
   salary!: number;
   birth!: Date;
   employee_registration!: number;
-
 }
 
 
