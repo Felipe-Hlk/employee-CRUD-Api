@@ -12,6 +12,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EmployeesService {
+  getEmployees() {
+    throw new Error('Method not implemented.');
+  }
 
   uri = 'http://localhost:3000/api'; // Vindo do BackEnd
 
