@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../service/employees.service';
 import Employee from '../classes/Employee';
 
@@ -11,10 +11,19 @@ export class EmployeeEditComponent {
 
   employees: Employee[] = [];
 
-  constructor( private employeesService: EmployeesService ){
+  constructor ( private employeesService: EmployeesService ){}
+
+  ngOnInit(): void{
+    this.employeesService
+      .getEmployees()
+      .subscribe((data: Employee[]) => {
+        this.employees = data;
+      });
 
   }
 
-  
 
 }
+
+
+
