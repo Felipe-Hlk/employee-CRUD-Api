@@ -9,11 +9,10 @@ import Employee from '../classes/Employee';
   styleUrls: ['./employee-edit.component.scss']
 })
 export class EmployeeEditComponent {
-employee_id: any|string;
 
+  employee_id: any|string;
 
   employees: Employee[] = [];
-
 
   constructor ( private employeesService: EmployeesService ){}
 
